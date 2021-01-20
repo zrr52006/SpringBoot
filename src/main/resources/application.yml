@@ -1,0 +1,36 @@
+#普通数据的配置
+name: 张三
+
+#对象的配置
+person:
+  name: zhangranran
+  age: 18
+  addr: beijing
+#行内对象配置
+person1: {name: zhangrr,age: 18,addr:beijing }
+#配置数组、集合
+city:
+  - nejing
+  - tianjin
+  - chonging
+  - shanghai
+city1: [nejing,tianjin,chonging,shanghai]
+
+#配置数组、集合(对象数据)
+student:
+  - name: tom
+    age: 18
+    addr: beijing
+  - name: lucy
+    age: 16
+    addr: tianjin
+
+student1: [{name: tom,age: 18,addr: beijing},{name: lucy,age: 17,addr: tianjin}]
+
+#Map配置
+map:
+  key1: value1
+  key2: value2
+
+server:
+  port: 8089
