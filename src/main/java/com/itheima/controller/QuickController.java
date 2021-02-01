@@ -1,8 +1,9 @@
-package com.itheima;
+package com.itheima.controller;
 
 
 import com.itheima.domain.ResultMap;
 import com.itheima.domain.UserModel;
+import com.itheima.mapper.UserMapper;
 import com.itheima.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,9 +19,11 @@ public class QuickController {
     @Autowired
     private UserServices userServices;
 
+
     @RequestMapping(value = "/quick",method = RequestMethod.GET)
     @ResponseBody
     public ResultMap quick(){
+
 //    return "hello SpringBoot";
         UserModel userModel=new UserModel("1","张然然","安徽亳州");
         ResultMap rm=new ResultMap(userModel,300,"ok");

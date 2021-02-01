@@ -33,4 +33,4 @@ map:
   key2: value2
 
 server:
-  port: 8089
+  port: 8088
