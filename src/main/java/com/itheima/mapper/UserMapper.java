@@ -8,4 +8,10 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
     public List<User> queryUserList();
+
+    public void  delete(Integer id);
+
+    public User insert(User user);
+
+    public User update(User user);
 }

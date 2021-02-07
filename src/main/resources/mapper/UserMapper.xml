@@ -1,7 +1,47 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.itheima.mapper.UserMapper">
+    <resultMap id="MyEmp" type="com.itheima.domain.User">
+        <!--
+        主键与其他字段有区别，需要注意
+        column表示字段在数据库中对应的名称，property表示在实体bean中对应的名称
+        id：指定主键列的封装规则（主键也可以使用result来定义）
+        column：指定哪一列
+        property：指定对应的javaBean属性
+        -->
+        <id column="id" property="id" />
+
+        <!--
+        result：定义普通列封装规则
+        -->
+        <result column="username" property="username"></result>
+
+        <!--其他不指定的列会自动封装：我们只要写resultMap，就尽量把所有的列都写上-->
+        <result column="birthday" property="birthday"></result>
+        <result column="Sex" property="sex"></result>
+        <result column="address" property="address"></result>
+        <result column="createDate" property="sex"></result>
+    </resultMap>
+
     <select id="queryUserList" resultType="user">
     select * from user
     </select>
+
+  <!--resultType="com.wm.adminbackend.entity.user.SysUserDTO">-->
+    <delete id="delete" parameterType="java.lang.Integer" >
+    delete from user where id = #{id}
+    </delete>
+
+    <insert id="insert" parameterType="com.itheima.domain.User">
+	INSERT INTO user(id, username, birthday, sex, address, createDate) VALUES
+	 values
+	 (#{id},#{username}#{birthday},#{sex},#{address},new DATE())
+	 </insert>
+
+
+    <update id="update" parameterType="com.itheima.domain.User" >
+	update user set id=#{id},username=#{username},birthday=#{birthday},sex=#{sex},address=#{address},createDate=new DATE() where id=#{id}
+    </update>
+
+
 </mapper>
